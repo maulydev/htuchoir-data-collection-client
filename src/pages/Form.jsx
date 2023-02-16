@@ -18,8 +18,9 @@ const Form = () => {
 	};
 
 	useEffect(() => {
-		const getId = axios("http://127.0.0.1:8000/id-maker");
-		getId.then((res) => setId(() => res.data["id"]));
+		axios("http://127.0.0.1:8000/id-maker").then((res) =>
+			setId(() => res.data["id"])
+		);
 	}, []);
 
 	const form = useRef();
@@ -80,12 +81,12 @@ const Form = () => {
 					alt="Choir Logo"
 				/>
 			</div>
-			<div className="flex flex-col text-center">
+			<div className="flex flex-col text-center select-none">
 				<span className="font-bold">WELCOME ON BOARD!</span>
 				<span>Please use a minute to fill this form</span>
 			</div>
-			<section className="bg-white mt-4 w-full h-full rounded-t-3xl md:rounded-3xl max-w-md">
-				<div className="text-blue-600 p-4 text-center flex flex-col text-2xl md:text-4xl">
+			<section className="mb-8 bg-white mt-4 w-full h-full rounded-t-3xl md:rounded-3xl max-w-md">
+				<div className="select-none text-blue-600 p-4 text-center flex flex-col text-2xl md:text-4xl">
 					<span className="welcome">Sing! Praises!!</span>
 					<span className="welcome">Sing! Sing! Praises to the Lord!</span>
 				</div>
